@@ -26,7 +26,6 @@ public class StepDefinitions {
 
     @And("I have selected {int} item(s) to the cart")
     public void i_have_selected_item_s_to_the_cart(int quantity) throws InterruptedException {
-
         WebElement quantityBox = driver.findElement(By.xpath("/html/body/main/div[4]/div[1]/div[3]/section[2]/div/div[2]/div[2]/div[2]/div[2]/input"));
         quantityBox.clear();
         quantityBox.sendKeys(Integer.toString(quantity));
