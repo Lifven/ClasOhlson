@@ -30,11 +30,9 @@ public class StepDefinitions {
         WebElement quantityBox = driver.findElement(By.xpath("/html/body/main/div[4]/div[1]/div[3]/section[2]/div/div[2]/div[2]/div[2]/div[2]/input"));
         quantityBox.clear();
         quantityBox.sendKeys(Integer.toString(quantity));
-        //   quantityBox.sendKeys(Keys.ENTER);
+        // quantityBox.sendKeys(Keys.ENTER);
         // quantityBox.submit();
         Thread.sleep(1000);
-
-
     }
 
     @When("I click on add to the cart")
@@ -47,10 +45,8 @@ public class StepDefinitions {
     @Then("the result should be {int} item(s) in the cart")
     public void the_result_should_be_item_s_in_the_cart(int quantity) {
         WebElement cartQuantity = driver.findElement(By.xpath("/html/body/main/div[2]/header/nav[1]/div/div[2]/div/ul/li[2]/div/div/div/div[1]/a/div/div[1]"));
-
         System.out.println("Quantity: " + cartQuantity.getAttribute("textContent"));
         Assert.assertEquals(quantity, Integer.parseInt(cartQuantity.getAttribute("textContent")));
-
         driver.quit();
     }
 }
