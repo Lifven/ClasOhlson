@@ -46,11 +46,10 @@ public class StepDefinitions {
 
     @Then("the result should be {int} item(s) in the cart")
     public void the_result_should_be_item_s_in_the_cart(int quantity) {
-        WebElement cartQuantity = driver.findElement(By.id("shopping-bag"));
+        WebElement cartQuantity = driver.findElement(By.xpath("/html/body/main/div[2]/header/nav[1]/div/div[2]/div/ul/li[2]/div/div/div/div[1]/a/div/div[1]"));
 
-        System.out.println("Antal: " + cartQuantity.getAttribute("textContent"));
-      //  Assert.assertEquals(quantity, Integer.parseInt(cartQuantity.getAttribute("value")));
-
+        System.out.println("Quantity: " + cartQuantity.getAttribute("textContent"));
+        Assert.assertEquals(quantity, Integer.parseInt(cartQuantity.getAttribute("textContent")));
 
         driver.quit();
     }
